@@ -1,0 +1,48 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "catppuccin",
+  "autoupdate": true,
+  "mcp": {
+     "context7": {
+       "type": "local",
+       "command": ["npx", "-y", "@upstash/context7-mcp"],
+       "enabled": true,
+       "environment": {}
+     },
+     "convex": {
+       "type": "local",
+       "command": ["npx", "-y", "convex", "mcp", "start"],
+       "enabled": true,
+       "environment": {}
+     },
+     "n8n-mcp": {
+       "type": "local",
+       "command": ["npx", "n8n-mcp"],
+       "enabled": true,
+       "environment": {
+         "MCP_MODE": "stdio",
+         "LOG_LEVEL": "error",
+         "DISABLE_CONSOLE_OUTPUT": "true",
+         "N8N_API_URL": "{env:N8N_API_URL}",
+         "N8N_API_KEY": "{env:N8N_API_KEY}"
+       }
+     },
+    "brave": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-brave-search"],
+      "enabled": true,
+      "environment": {
+         "BRAVE_API_KEY": "{env:BRAVE_API_KEY}",
+      }
+    },
+    "nextjs-dev-tools": {
+      "type": "local",
+      "command": ["npx", "-y", "next-devtools-mcp@latest"],
+      "enabled": true,
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    }
+  }
+}
