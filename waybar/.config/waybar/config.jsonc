@@ -10,6 +10,7 @@
     "group/tray-expander",
     "bluetooth",
     "network",
+    "custom/vpn-indicator",
     "pulseaudio",
     "cpu",
     "battery"
@@ -65,19 +66,20 @@
     "tooltip": false,
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
-   "network": {
-     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-     "format": "{icon}",
-     "format-wifi": "{icon}",
-     "format-ethernet": "󰀂",
-     "format-disconnected": "󰤮",
-     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-     "tooltip-format-disconnected": "Disconnected",
-     "interval": 3,
-     "spacing": 1,
-     "on-click": "omarchy-launch-floating-terminal-with-presentation nmtui"
-   },
+    "network": {
+      "interface": "wlan0",
+      "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+      "format": "{icon}",
+      "format-wifi": "{icon}",
+      "format-ethernet": "󰀂",
+      "format-disconnected": "󰤮",
+      "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+      "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+      "tooltip-format-disconnected": "Disconnected",
+      "interval": 3,
+      "spacing": 1,
+      "on-click": "omarchy-launch-floating-terminal-with-presentation nmtui"
+    },
   "battery": {
     "format": "{capacity}% {icon}",
     "format-discharging": "{icon}",
@@ -134,6 +136,12 @@
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
     "return-type": "json"
+  },
+  "custom/vpn-indicator": {
+    "exec": "~/.config/waybar/scripts/vpn-status.sh",
+    "interval": 5,
+    "format": "{}",
+    "tooltip-format": "VPN Connected"
   },
   "tray": {
     "icon-size": 12,
