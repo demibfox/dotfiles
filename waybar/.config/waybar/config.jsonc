@@ -141,7 +141,8 @@
     "exec": "~/.config/waybar/scripts/vpn-status.sh",
     "interval": 5,
     "format": "{}",
-    "tooltip-format": "VPN Connected"
+    "tooltip-format": "VPN Connected",
+    "on-click-right": "~/.config/waybar/scripts/vpn-disconnect.sh"
   },
   "tray": {
     "icon-size": 12,
