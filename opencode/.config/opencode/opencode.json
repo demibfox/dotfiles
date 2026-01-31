@@ -3,6 +3,11 @@
   "plugin": [],
   "theme": "catppuccin",
   "autoupdate": true,
+  "permission": {
+    "skill": {
+      "*": "allow"
+    }
+  },
   "provider": {
     "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
